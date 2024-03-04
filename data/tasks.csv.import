@@ -1,0 +1,17 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://dgorisrdsb1mq"
+
+[deps]
+
+files=["res://data/tasks.Start.translation", "res://data/tasks.End.translation"]
+
+source_file="res://data/tasks.csv"
+dest_files=["res://data/tasks.Start.translation", "res://data/tasks.End.translation"]
+
+[params]
+
+compress=true
+delimiter=0

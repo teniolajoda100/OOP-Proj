@@ -1,0 +1,17 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://cbj1hubhnqb56"
+
+[deps]
+
+files=["res://java/data/tasks.Start.translation", "res://java/data/tasks.End.translation"]
+
+source_file="res://java/data/tasks.csv"
+dest_files=["res://java/data/tasks.Start.translation", "res://java/data/tasks.End.translation"]
+
+[params]
+
+compress=true
+delimiter=0

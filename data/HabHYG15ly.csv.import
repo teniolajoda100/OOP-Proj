@@ -1,0 +1,17 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://d2sdggk2sqi46"
+
+[deps]
+
+files=["res://data/HabHYG15ly.Hip.translation", "res://data/HabHYG15ly.Hab?.translation", "res://data/HabHYG15ly.Display Name.translation", "res://data/HabHYG15ly.Hyg.translation", "res://data/HabHYG15ly.BayerFlamsteed.translation", "res://data/HabHYG15ly.Gliese.translation", "res://data/HabHYG15ly.BD.translation", "res://data/HabHYG15ly.HD.translation", "res://data/HabHYG15ly.HR.translation", "res://data/HabHYG15ly.Proper Name.translation", "res://data/HabHYG15ly.Spectral Class.translation", "res://data/HabHYG15ly.Distance.translation", "res://data/HabHYG15ly.Xg.translation", "res://data/HabHYG15ly.Yg.translation", "res://data/HabHYG15ly.Zg.translation", "res://data/HabHYG15ly.AbsMag.translation"]
+
+source_file="res://data/HabHYG15ly.csv"
+dest_files=["res://data/HabHYG15ly.Hip.translation", "res://data/HabHYG15ly.Hab?.translation", "res://data/HabHYG15ly.Display Name.translation", "res://data/HabHYG15ly.Hyg.translation", "res://data/HabHYG15ly.BayerFlamsteed.translation", "res://data/HabHYG15ly.Gliese.translation", "res://data/HabHYG15ly.BD.translation", "res://data/HabHYG15ly.HD.translation", "res://data/HabHYG15ly.HR.translation", "res://data/HabHYG15ly.Proper Name.translation", "res://data/HabHYG15ly.Spectral Class.translation", "res://data/HabHYG15ly.Distance.translation", "res://data/HabHYG15ly.Xg.translation", "res://data/HabHYG15ly.Yg.translation", "res://data/HabHYG15ly.Zg.translation", "res://data/HabHYG15ly.AbsMag.translation"]
+
+[params]
+
+compress=true
+delimiter=0

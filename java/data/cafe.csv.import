@@ -1,0 +1,17 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://bn4qsjj2jav16"
+
+[deps]
+
+files=["res://java/data/cafe.Price.translation"]
+
+source_file="res://java/data/cafe.csv"
+dest_files=["res://java/data/cafe.Price.translation"]
+
+[params]
+
+compress=true
+delimiter=0

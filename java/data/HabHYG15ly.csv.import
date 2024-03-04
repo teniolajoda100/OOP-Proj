@@ -1,0 +1,17 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://cvewy1ablqp4h"
+
+[deps]
+
+files=["res://java/data/HabHYG15ly.Hip.translation", "res://java/data/HabHYG15ly.Hab?.translation", "res://java/data/HabHYG15ly.Display Name.translation", "res://java/data/HabHYG15ly.Hyg.translation", "res://java/data/HabHYG15ly.BayerFlamsteed.translation", "res://java/data/HabHYG15ly.Gliese.translation", "res://java/data/HabHYG15ly.BD.translation", "res://java/data/HabHYG15ly.HD.translation", "res://java/data/HabHYG15ly.HR.translation", "res://java/data/HabHYG15ly.Proper Name.translation", "res://java/data/HabHYG15ly.Spectral Class.translation", "res://java/data/HabHYG15ly.Distance.translation", "res://java/data/HabHYG15ly.Xg.translation", "res://java/data/HabHYG15ly.Yg.translation", "res://java/data/HabHYG15ly.Zg.translation", "res://java/data/HabHYG15ly.AbsMag.translation"]
+
+source_file="res://java/data/HabHYG15ly.csv"
+dest_files=["res://java/data/HabHYG15ly.Hip.translation", "res://java/data/HabHYG15ly.Hab?.translation", "res://java/data/HabHYG15ly.Display Name.translation", "res://java/data/HabHYG15ly.Hyg.translation", "res://java/data/HabHYG15ly.BayerFlamsteed.translation", "res://java/data/HabHYG15ly.Gliese.translation", "res://java/data/HabHYG15ly.BD.translation", "res://java/data/HabHYG15ly.HD.translation", "res://java/data/HabHYG15ly.HR.translation", "res://java/data/HabHYG15ly.Proper Name.translation", "res://java/data/HabHYG15ly.Spectral Class.translation", "res://java/data/HabHYG15ly.Distance.translation", "res://java/data/HabHYG15ly.Xg.translation", "res://java/data/HabHYG15ly.Yg.translation", "res://java/data/HabHYG15ly.Zg.translation", "res://java/data/HabHYG15ly.AbsMag.translation"]
+
+[params]
+
+compress=true
+delimiter=0
