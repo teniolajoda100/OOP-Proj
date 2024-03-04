@@ -4,7 +4,7 @@ Saoirse Reposar        C22448686
 
 
 Week1: (College Week 7)
-We made the strategic decision to utilize Processing along with either the Minim library 
+We made the decision to utilize Processing along with either the Minim library 
 or the Processing Sound library. 
 Main goal: Analyze the audio tracks of songs, focusing on extracting key characteristics 
 such as: 
