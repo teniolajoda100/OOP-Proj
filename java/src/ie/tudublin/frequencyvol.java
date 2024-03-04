@@ -17,7 +17,8 @@ Minim minim;
 AudioPlayer song;
 FFT fft;
 float volumeThreshold = 0.27f; // 0.27 seems to be the sweet spot for detecting beats 
-PImage verseImage, chorusImage;
+
+
 
 public void settings() {
   size(800, 600);
@@ -25,6 +26,7 @@ public void settings() {
   song = minim.loadFile("java/data/Jb.mp3", 1024);
   fft = new FFT(song.bufferSize(), song.sampleRate());
   song.play();
+ 
 
 }
 
@@ -41,16 +43,19 @@ public void draw() {
   }
   volume /= song.bufferSize();
 
+
+
   // condition to check for chorus vs verse
-  if (volume > volumeThreshold) {
+    if (volume > volumeThreshold) {
   
-    println("Chorus Detected!"); 
-  } 
-  else if ( volume < 0.2f){
+      println("Chorus Detected!"); 
+    } 
+  
+   if ( volume < 0.2f){
     println("We are not in the chorus");
-  }
+  } 
   else if (volume > 0.2f|| volume < 0.2f) {
-    println("Bridging to the chorus..");
+    println("Bridging to the chorus../pre chrous");
   }
 
  

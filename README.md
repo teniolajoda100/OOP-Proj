@@ -15,6 +15,10 @@ such as:
 
 This foundational step will enable us to create an engaging music visualization in Java.
 
+End result: We decided to use an algorithm that we developed. We wanted it to draw images based on if its in the chorus, or the pre chorus. We wanted to do this by simply measuring the volume/ frequency of the song and draw images based on how loud and energetic the frequencies are.
+
+We ran into some trouble when we realised that some parts of the song in the beggining would randomly be loud and the system would pick that up. So we developed an algorithm based around the song that waits a certain amount of time before it starts to check if it's in the chorus. 
+
 
 Week 2: (College Week8) 
  Using our audio analysis Week 1, we are set to develop visual elements designed to interact with the audio in real-time. Our approach is to embrace abstraction through visuals.
