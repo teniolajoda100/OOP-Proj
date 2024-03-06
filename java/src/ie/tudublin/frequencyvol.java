@@ -53,6 +53,7 @@ public void draw() {
   
    if ( volume < 0.2f){
     println("We are not in the chorus");
+    
   } 
   else if (volume > 0.2f|| volume < 0.2f) {
     println("Bridging to the chorus../pre chrous");

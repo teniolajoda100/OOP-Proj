@@ -14,10 +14,12 @@ such as:
 2.volume 
 
 This foundational step will enable us to create an engaging music visualization in Java.
+#
+ We wanted it to draw images based on if its in the chorus, or the pre chorus. We wanted to do this by simply measuring the volume/ frequency of the song and draw images based on how loud and energetic the frequencies are.
 
-End result: We decided to use an algorithm that we developed. We wanted it to draw images based on if its in the chorus, or the pre chorus. We wanted to do this by simply measuring the volume/ frequency of the song and draw images based on how loud and energetic the frequencies are.
+ We ran into some trouble when we realised that some parts of the song in the beginning would randomly be loud and the system would pick that up. So we spent more time developing an algorithm that can pick up the frequency and the volume so it can be more accurate.
 
-We ran into some trouble when we realised that some parts of the song in the beggining would randomly be loud and the system would pick that up. So we developed an algorithm based around the song that waits a certain amount of time before it starts to check if it's in the chorus. 
+End result: We created an algorithm in the frequencyvol.java file to extract the volume without the frequency. It passed it's testing stages and aided us in moving towards creating a refined version that is more complex and accurate and extracts both the frequency and volume.
 
 
 Week 2: (College Week8) 
