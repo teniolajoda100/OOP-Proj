@@ -22,7 +22,7 @@ This foundational step will enable us to create an engaging music visualization 
 End result: We created an algorithm in the frequencyvol.java file to extract the volume without the frequency. It passed it's testing stages and aided us in moving towards creating a refined version that is more complex and accurate and extracts both the frequency and volume.
 
 
-Week 2: (College Week8) 
+Week 2: (College Week8)
  Using our audio analysis Week 1, we are set to develop visual elements designed to interact with the audio in real-time. Our approach is to embrace abstraction through visuals.
 
  Main goal: Create visuals that dynamically respond to music, aiming to visually represent
