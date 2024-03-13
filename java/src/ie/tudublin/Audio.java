@@ -23,7 +23,7 @@ public class Audio extends PApplet {
         fft = new FFT(player.bufferSize(), player.sampleRate());
         player.play();
 
-        background(255);
+        background(135,206,235);
         drawBuildings();
     }
 
@@ -58,7 +58,7 @@ public class Audio extends PApplet {
   
           // adding roofs
           fill(120);
-          // for a pitched roof
+          // for a triangle roof
          // triangle(x, y, x + buildingWidth / 2 - 2.5f, y - 30, x + buildingWidth - 5, y);
           // for a a flat roof
           rect(x, y - 20, buildingWidth - 5, 20); // flat roof
