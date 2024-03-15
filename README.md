@@ -1,49 +1,73 @@
-Students name: 
-Omoteniola Ogunmuyiwa  C22419214
-Saoirse Reposar        C22448686
+Music Visualiser Project
+Name: Saoirse Reposar
+Student Number:C22448686
 
+Student Name:Omoteniola Ogunmuyiwa
+Student Number:C22419214
 
-Week1: (College Week 7)
-We made the decision to utilize Processing along with either the Minim library 
-or the Processing Sound library. 
-Main goal: Analyze the audio tracks of songs, focusing on extracting key characteristics 
-such as: 
+Instructions
+Fork this repository and use it a starter project for your assignment
+Create a new package named your student number and put all your code in this package.
+You should start by creating a subclass of ie.tudublin.Visual
+There is an example visualiser called MyVisual in the example package
+Check out the WaveForm and AudioBandsVisual for examples of how to call the Processing functions from other classes that are not subclasses of PApplet
+Description of the assignment
+Instructions
+How it works
+What I am most proud of in the assignment
+Markdown Tutorial
+This is emphasis
 
+This is a bulleted list
 
-1.frequency
-2.volume 
+Item
+Item
+This is a numbered list
 
-This foundational step will enable us to create an engaging music visualization in Java.
+Item
+Item
+This is a hyperlink
 
- We wanted it to draw images based on if its in the chorus, or the pre chorus. We wanted to do this by simply measuring the volume/ frequency of the song and draw images based on how loud and energetic the frequencies are.
+Headings
+Headings
+Headings
+Headings
+This is code:
 
- We ran into some trouble when we realised that some parts of the song in the beginning would randomly be loud and the system would pick that up. So we spent more time developing an algorithm that can pick up the frequency and the volume so it can be more accurate.
+public void render()
+{
+	ui.noFill();
+	ui.stroke(255);
+	ui.rect(x, y, width, height);
+	ui.textAlign(PApplet.CENTER, PApplet.CENTER);
+	ui.text(text, x + width * 0.5f, y + height * 0.5f);
+}
+So is this without specifying the language:
 
-End result: We created an algorithm in the frequencyvol.java file to extract the volume without the frequency. It passed it's testing stages and aided us in moving towards creating a refined version that is more complex and accurate and extracts both the frequency and volume.
+public void render()
+{
+	ui.noFill();
+	ui.stroke(255);
+	ui.rect(x, y, width, height);
+	ui.textAlign(PApplet.CENTER, PApplet.CENTER);
+	ui.text(text, x + width * 0.5f, y + height * 0.5f);
+}
+This is an image using a relative URL:
 
+An image
 
-Week 2: (College Week8)
- Using our audio analysis Week 1, we are set to develop visual elements designed to interact with the audio in real-time. Our approach is to embrace abstraction through visuals.
+This is an image using an absolute URL:
 
- Main goal: Create visuals that dynamically respond to music, aiming to visually represent
- 
- 1.Mood 
- 2.Tempo
- 3.Narrative
+A different image
 
- Should result in an experience that tells a story and conveys emotions.
+This is a youtube video:
 
- Week 3: (College Week 9)
- This week focuses on using exciting visual version of the song.
+YouTube
 
-Main goal: Use visuals to show the feelings, themes, and layout of the song, with a focus on:
+This is a table:
 
-1.Colour:Bright colours for happy parts and darker colours for sad or intense parts.
-
-2.Shape: Different shapes to represent parts of the song. Sharp shapes for exciting parts, and smooth shapes for calm parts.
-
-3.Motion: Make the visuals move in a way that follows the beat and rhythm of the song. Fast movements for fast parts of the song, and slow movements for the slow parts.
-
-4.Composition: Arrange the visual elements in a way that shows the structure of the song, e.g using the layout to differentiate between the chorus and verses.
-
-By doing this, we hope to make a visual story that goes along with the song.
+Heading 1	Heading 2
+Some stuff	Some more stuff in this column
+Some stuff	Some more stuff in this column
+Some stuff	Some more stuff in this column
+Some stuff	Some more stuff in this column
