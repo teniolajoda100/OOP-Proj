@@ -47,12 +47,15 @@ public void draw() {
 
   // condition to check for chorus vs verse
     if (volume > volumeThreshold) {
-  
+      String[] a = {"MAIN"};
+      processing.core.PApplet.runSketch( a, new Sun());
       println("Chorus Detected!"); 
     } 
   
    if ( volume < 0.2f){
     println("We are not in the chorus");
+    String[] a = {"MAIN"};
+    processing.core.PApplet.runSketch( a, new Start());
     
   } 
   else if (volume > 0.2f|| volume < 0.2f) {

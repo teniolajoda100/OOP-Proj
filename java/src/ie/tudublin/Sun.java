@@ -8,7 +8,9 @@ import processing.core.PApplet;
 import processing.core.PGraphics;
 import ddf.minim.*;
 
-public class Moon extends PApplet {
+
+//Can draw an earth planet orbiting the sun
+public class Sun extends PApplet {
 
     Minim minim;
     AudioPlayer player;
@@ -28,21 +30,18 @@ public class Moon extends PApplet {
     fft = new FFT(player.bufferSize(), player.sampleRate());
     player.play();
 
-    staticElements = createGraphics(width, height, P3D); // Initialize the buffer so we can make the buildings stop redrawing 
-
-
- 
+    staticElements = createGraphics(width, height, P3D); // initialize the buffer so we can make the buildings stop redrawing 
     
-    // Draw the static elements onto the buffer
+    // draw the static elements onto the buffer
     staticElements.beginDraw();
     background(staticElements);
     staticElements.endDraw();
 }
 
-// Function to draw background
+// function to draw background
 void background(PGraphics pg) {
     pg.beginDraw();
-    pg.background(0); // Starting with black f
+    pg.background(0); // starting with black f
     pg.endDraw();
 }
 
@@ -77,19 +76,13 @@ public void drawSun() {
     float sunX = width / 2.0f; // centered across the width
     float sunY = height / 2.0f; // centered vertically
   
-    // Draw the main sun ellipse with the brightest yellow
+    // draw the main sun ellipse with the brightest yellow
     noStroke();
     fill(255, 255, 0); // Brightest yellow
     ellipse(sunX, sunY, sunSize, sunSize);
   
     
-    for (int i = 1; i > 0; i--) {
-        //1 represents the nunber of layers that glow
-      float auraSize = sunSize * (1 + i * 0.1f); // Each layer is slightly larger
-      float alphaValue = 50 - i * 5; // Decreasing alpha value for outer layers
-      fill(255, 255, 0, alphaValue); // Semi-transparent yellow for the aura
-      ellipse(sunX, sunY, auraSize, auraSize); // Draw the aura
-    }
+  
    
     }
   }
