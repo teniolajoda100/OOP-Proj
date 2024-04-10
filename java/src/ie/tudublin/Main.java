@@ -1,13 +1,7 @@
 package ie.tudublin;
-import ddf.minim.AudioBuffer;
-import ddf.minim.AudioInput;
 import ddf.minim.AudioPlayer;
 import ddf.minim.Minim;
 import ddf.minim.analysis.FFT;
-import ddf.minim.ugens.Frequency;
-import processing.core.PApplet;
-import processing.core.PGraphics;
-import ddf.minim.*;
 
 public class Main
 {

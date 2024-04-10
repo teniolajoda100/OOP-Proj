@@ -2,6 +2,20 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Universe",
+            "request": "launch",
+            "mainClass": "ie.tudublin.Universe",
+            "projectName": "java"
+        },
+        {
+            "type": "java",
+            "name": "Moon",
+            "request": "launch",
+            "mainClass": "ie.tudublin.Moon",
+            "projectName": "java"
+        },
+        {
+            "type": "java",
             "name": "person",
             "request": "launch",
             "mainClass": "ie.tudublin.person",
