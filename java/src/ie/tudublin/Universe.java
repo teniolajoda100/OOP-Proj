@@ -69,28 +69,61 @@ public class Universe extends PApplet {
     }
 
     private void drawSun() {
-        // calculate sun size based on audio level
+        // Base parameters
         float sunBaseSize = 50; // base size of the sun
-        float level = player.mix.level(); // fet current audio level
-        float sunSize = sunBaseSize + level * 200; //size adjustment
-
-        // sun position 
+        float level = player.mix.level(); // get current audio level
+        float sunSize = sunBaseSize + level * 200; // size adjustment
+        
+        // Sun position 
         float sunX = width / 2.0f; // centered across the width
         float sunY = height / 2.0f; // centered vertically
-
-        //draw the main sun ellipse with the brightest yellow
+    
+        // Number of sun rays
+        int points = 16; // you can increase this for more rays
+        float angle = TWO_PI / points;
+    
+        // draw the main sun with jagged edges
         noStroke();
-        fill(255, 255, 0); //brightest yellow
-        ellipse(sunX, sunY, sunSize, sunSize);
-
-        for (int i = 1; i > 0; i--) {
-            // 1 represents the number of layers that glow
-            float auraSize = sunSize * (1 + i * 0.1f); // each layer is slightly larger
-            float alphaValue = 50 - i * 5; //decreasing alpha value for outer layers
-            fill(255, 255, 0, alphaValue); // Semi-transparent yellow for the aura
-            ellipse(sunX, sunY, auraSize, auraSize); // Draw the aura
+        fill(255, 255, 0); // brightest yellow
+        beginShape();
+        for (int i = 0; i < points; i++) {
+            //calculate outer point
+            float outerX = cos(angle * i) * sunSize * 0.5f + sunX;
+            float outerY = sin(angle * i) * sunSize * 0.5f + sunY;
+            vertex(outerX, outerY);
+    
+            //calculate inner point
+            float innerX = cos(angle * i + angle / 2) * (sunSize * 0.4f) + sunX;
+            float innerY = sin(angle * i + angle / 2) * (sunSize * 0.4f) + sunY;
+            vertex(innerX, innerY);
+        }
+        endShape(CLOSE);
+    
+        // drawing glow 
+        int auraLayers = 5; // num layers
+        for (int i = 0; i < auraLayers; i++) {
+            float auraSize = sunSize * (1 + (i + 1) * 0.1f); //each layer slighty larger
+            float alphaValue = 50 - i * 10; 
+            fill(255, 255, 0, alphaValue); // semi-transparent yellow for the aura
+    
+            // draw the aura layer with jagged edges
+            beginShape();
+            for (int j = 0; j < points; j++) {
+                // calculate outer point
+                float outerX = cos(angle * j) * auraSize * 0.5f + sunX;
+                float outerY = sin(angle * j) * auraSize * 0.5f + sunY;
+                vertex(outerX, outerY);
+    
+                // calculate inner point
+                float innerX = cos(angle * j + angle / 2) * (auraSize * 0.4f) + sunX;
+                float innerY = sin(angle * j + angle / 2) * (auraSize * 0.4f) + sunY;
+                vertex(innerX, innerY);
+            }
+            endShape(CLOSE);
         }
     }
+    
+    
 
     ArrayList<PVector> greeneryPositions; // To store greenery positions relative to Earth
 
@@ -107,9 +140,9 @@ void initGreenery(float earthSize) {
 
 // Adjusted drawEarth function to use stored greenery positions
 private void drawEarth() {
-    float level = player.mix.level(); // Get current audio level
+    //float level = player.mix.level(); // Get current audio level
     float earthBaseSize = 20; // Base size of the Earth
-    float earthSize = earthBaseSize + level * 200; // Make Earth's size reactive to the beat
+    float earthSize = earthBaseSize; // Make Earth's size reactive to the beat
     float earthX = width / 2.0f + cos(frameCount * 0.01f) * 200; // Position of Earth
     float earthY = height / 2.0f + sin(frameCount * 0.01f) * 200;
 
@@ -133,9 +166,9 @@ private void drawEarth() {
     noStroke();
 }
 private void drawVenus() {
-    float level = player.mix.level(); // get current audio level
+    //float level = player.mix.level(); // get current audio level
     float venusBaseSize = 18; // slightly smaller than earth
-    float venusSize = venusBaseSize + level * 150; // adjust venus  size reactively 
+    float venusSize = venusBaseSize; // adjust venus  size reactively 
     float venusDistanceFromSun = 150; // adjust this to place venus correctly in your simulation
     float venusOrbitSpeed = 0.008f; // orbit speed
     float venusX = width / 2.0f + cos(frameCount * venusOrbitSpeed) * venusDistanceFromSun; // venus position based on orbit
@@ -148,9 +181,9 @@ private void drawVenus() {
 }
 
 private void drawMercury() {
-    float level = player.mix.level(); 
+   // float level = player.mix.level(); 
     float mercuryBaseSize = 12; 
-    float mercurySize = mercuryBaseSize + level * 100; // adjust mercurys size reactively
+    float mercurySize = mercuryBaseSize; // adjust mercurys size reactively
     float mercuryDistanceFromSun = 100; 
     float mercuryOrbitSpeed = 0.015f; 
     float mercuryX = width / 2.0f + cos(frameCount * mercuryOrbitSpeed) * mercuryDistanceFromSun; 
@@ -163,9 +196,9 @@ private void drawMercury() {
 }
 
 private void drawMars() {
-    float level = player.mix.level(); 
+    //float level = player.mix.level(); 
     float marsBaseSize = 17; 
-    float marsSize = marsBaseSize + level * 120; 
+    float marsSize = marsBaseSize; 
     float marsDistanceFromSun = 250; 
     float marsOrbitSpeed = 0.008f; 
     //mars x and y
@@ -180,9 +213,9 @@ private void drawMars() {
 
 
 private void drawJupiter() {
-    float level = player.mix.level(); 
+   // float level = player.mix.level(); 
     float jupiterBaseSize = 35; 
-    float jupiterSize = jupiterBaseSize + level * 250; 
+    float jupiterSize = jupiterBaseSize; 
     float jupiterDistanceFromSun = 400; 
     float jupiterOrbitSpeed = 0.007f; 
     float jupiterX = width / 2.0f + cos(frameCount * jupiterOrbitSpeed) * jupiterDistanceFromSun; 
@@ -193,16 +226,14 @@ private void drawJupiter() {
     noStroke();
     ellipse(jupiterX, jupiterY, jupiterSize, jupiterSize); 
 
-    float spotSize = jupiterBaseSize / 4 + level * 100; 
-    fill(255, 69, 0); 
-    ellipse(jupiterX - jupiterSize / 4, jupiterY, spotSize, spotSize / 1.5f); //making sure the dot stays in place
+ 
 }
 
 private void drawSaturn() {
-    float level = player.mix.level(); 
+    //float level = player.mix.level(); 
     float saturnBaseSize = 30; 
-    float saturnSize = saturnBaseSize + level * 200; 
-    float saturnDistanceFromSun = 500; 
+    float saturnSize = saturnBaseSize; 
+    float saturnDistanceFromSun = 430; 
     float saturnOrbitSpeed = 0.006f; 
     float saturnX = width / 2.0f + cos(frameCount * saturnOrbitSpeed) * saturnDistanceFromSun; 
     float saturnY = height / 2.0f + sin(frameCount * saturnOrbitSpeed) * saturnDistanceFromSun;
@@ -222,10 +253,10 @@ private void drawSaturn() {
 }
 
 private void drawUranus() {
-    float level = player.mix.level(); 
+    //float level = player.mix.level(); 
     float uranusBaseSize = 25; 
-    float uranusSize = uranusBaseSize + level * 180;
-    float uranusDistanceFromSun = 550;
+    float uranusSize = uranusBaseSize;
+    float uranusDistanceFromSun = 450;
     float uranusOrbitSpeed = 0.005f; 
     float uranusX = width / 2.0f + cos(frameCount * uranusOrbitSpeed) * uranusDistanceFromSun; 
     float uranusY = height / 2.0f + sin(frameCount * uranusOrbitSpeed) * uranusDistanceFromSun;
@@ -237,10 +268,10 @@ private void drawUranus() {
 }
 
 private void drawNeptune() {
-    float level = player.mix.level(); 
+    //float level = player.mix.level(); 
     float neptuneBaseSize = 24; 
-    float neptuneSize = neptuneBaseSize + level * 180; 
-    float neptuneDistanceFromSun = 600; 
+    float neptuneSize = neptuneBaseSize; 
+    float neptuneDistanceFromSun = 500; 
     float neptuneOrbitSpeed = 0.004f; 
     float neptuneX = width / 2.0f + cos(frameCount * neptuneOrbitSpeed) * neptuneDistanceFromSun;
     float neptuneY = height / 2.0f + sin(frameCount * neptuneOrbitSpeed) * neptuneDistanceFromSun;

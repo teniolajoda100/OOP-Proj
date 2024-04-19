@@ -10,7 +10,7 @@ public class Main
 	FFT fft;
 	public void settings() {
 		minim = new Minim(this);
-		song = minim.loadFile("java/data/Jb.mp3", 1024);
+		song = minim.loadFile("java/data/myuniverse.mp3", 1024);
 		fft = new FFT(song.bufferSize(), song.sampleRate());
 		song.play();
 	   

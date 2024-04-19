@@ -5,6 +5,7 @@ import ddf.minim.analysis.FFT;
 import processing.core.PApplet;
 
 
+
 public class person extends PApplet {
     Minim minim;
     AudioPlayer player;
@@ -42,7 +43,7 @@ public class person extends PApplet {
 
     public void setup() {
         minim = new Minim(this);
-        player = minim.loadFile("java/data/Jb.mp3");
+        player = minim.loadFile("java/data/myuniverse.mp3");
         fft = new FFT(player.bufferSize(), player.sampleRate());
         player.play();
 
@@ -56,6 +57,12 @@ public class person extends PApplet {
     public void draw() {
         background(135, 206, 235); //set background to sky blue
 
+        float sunX = width - 150; // Adjust as necessary for the position
+        float sunY = 150; // Adjust as necessary for the position
+
+    // draw the reactive sun
+        drawSun(sunX, sunY); // Modify this method if you need a different position for the sun
+
         // draw the cloud
         drawCloud(cloudX, cloudY);
 
@@ -67,7 +74,11 @@ public class person extends PApplet {
 
         // draw question marks
         drawQuestionMarks();
+        
     }
+
+
+
 
     void drawCloud(float x, float y) {
         fill(255); // White color
@@ -90,7 +101,7 @@ public class person extends PApplet {
         // adjust the angles of the legs to point towards the right
         float legAngle = PI/12; 
 
-        // calculate the positions of the feet
+        // calculate the positions of the feet3
         float leftFootX = x - 10 + cos(legAngle) * legLength;
         float leftFootY = y + 50 + sin(legAngle) * legLength;
         float rightFootX = x + 10 + cos(legAngle) * legLength;
@@ -110,6 +121,15 @@ public class person extends PApplet {
         // draw girl's head (right side profile)
         fill(255, 218, 185); 
         ellipse(x + 10, y - 45, 30, 30); 
+
+        // Draw girl's head (right side profile)
+    fill(255, 218, 185); 
+    ellipse(x + 10, y - 45, 30, 30); 
+
+
+    
+
+
     }
 
     void drawHearts() {
@@ -143,6 +163,49 @@ public class person extends PApplet {
             textSize(32);
             text("?", x, y);
             popMatrix();
+        }
+    }
+    void drawSun(float x, float y) {
+ float sunBaseSize = 50;
+    float level = player.mix.level(); // Audio reaction
+    float songProgress = map(player.position(), 0, player.length(), 0, 1); // Song progress mapped to a range of 0 to 1
+    float sunGrowthFactor = 200; // How much the sun will grow over the course of the song
+    float sunSize = sunBaseSize + songProgress * sunGrowthFactor + level * 200; // Combine growth over time with audio reaction
+    
+        // Draw the main sun with jagged edges
+        noStroke();
+        fill(255, 255, 0);
+        beginShape();
+        int points = 16;
+        float angle = TWO_PI / points;
+        for (int i = 0; i < points; i++) {
+            float outerX = cos(angle * i) * sunSize * 0.5f + x;
+            float outerY = sin(angle * i) * sunSize * 0.5f + y;
+            vertex(outerX, outerY);
+    
+            float innerX = cos(angle * i + angle / 2) * sunSize * 0.4f + x;
+            float innerY = sin(angle * i + angle / 2) * sunSize * 0.4f + y;
+            vertex(innerX, innerY);
+        }
+        endShape(CLOSE);
+    
+        // Draw the glow aura
+        int auraLayers = 5;
+        for (int i = 0; i < auraLayers; i++) {
+            float auraSize = sunSize * (1 + (i + 1) * 0.1f);
+            float alphaValue = 50 - i * 10;
+            fill(255, 255, 0, alphaValue);
+            beginShape();
+            for (int j = 0; j < points; j++) {
+                float outerX = cos(angle * j) * auraSize * 0.5f+ x;
+                float outerY = sin(angle * j) * auraSize * 0.5f + y;
+                vertex(outerX, outerY);
+    
+                float innerX = cos(angle * j + angle / 2) * auraSize * 0.4f+ x;
+                float innerY = sin(angle * j + angle / 2) * auraSize * 0.4f + y;
+                vertex(innerX, innerY);
+            }
+            endShape(CLOSE);
         }
     }
     
