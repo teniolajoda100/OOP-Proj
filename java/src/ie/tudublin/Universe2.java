@@ -8,7 +8,7 @@ import processing.core.PApplet;
 import processing.core.PGraphics;
 import processing.core.PVector;
 
-public class Universe extends PApplet {
+public class Universe2 extends PApplet {
 
     Minim minim;
     AudioPlayer player;
@@ -17,7 +17,7 @@ public class Universe extends PApplet {
     Main controller;
 
 
-    public Universe(Main controller, AudioPlayer player) {
+    public Universe2(Main controller, AudioPlayer player) {
         this.player = player;
         this.controller = controller;
     }
@@ -60,11 +60,6 @@ public class Universe extends PApplet {
         drawSaturn();
         drawUranus();
         drawNeptune();
-        if (millis() > 20000) {
-            controller.switchToBuildings2();
-            noLoop(); 
-            surface.setVisible(false);
-        }
     }
 
     private void drawStars() {

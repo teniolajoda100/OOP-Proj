@@ -23,7 +23,7 @@ float volumeThreshold = 0.27f; // 0.27 seems to be the sweet spot for detecting 
 public void settings() {
   size(800, 600);
   minim = new Minim(this);
-  song = minim.loadFile("java/data/Jb.mp3", 1024);
+  song = minim.loadFile("java/data/myuniverse.mp3", 1024);
   fft = new FFT(song.bufferSize(), song.sampleRate());
   song.play();
  
@@ -55,8 +55,7 @@ public void draw() {
    if ( volume < 0.2f){
     println("We are not in the chorus");
     String[] a = {"MAIN"};
-    processing.core.PApplet.runSketch( a, new Start());
-    
+
   } 
   else if (volume > 0.2f|| volume < 0.2f) {
     println("Bridging to the chorus../pre chrous");
