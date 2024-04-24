@@ -8,7 +8,7 @@ import processing.core.PApplet;
 import processing.core.PGraphics;
 import processing.core.PVector;
 
-public class Universe2 extends PApplet {
+public class Universe3 extends PApplet {
 
     Minim minim;
     AudioPlayer player;
@@ -17,7 +17,7 @@ public class Universe2 extends PApplet {
     Main controller;
 
 
-    public Universe2(Main controller, AudioPlayer player) {
+    public Universe3(Main controller, AudioPlayer player) {
         this.player = player;
         this.controller = controller;
     }
@@ -60,7 +60,7 @@ public class Universe2 extends PApplet {
         drawSaturn();
         drawUranus();
         drawNeptune();   
-         if (millis() > 37000) {
+         if (millis() > 28000) {
             controller.switchToPerson2();
             noLoop(); 
             surface.setVisible(false);
@@ -136,26 +136,24 @@ public class Universe2 extends PApplet {
     
     
 
-    ArrayList<PVector> greeneryPositions;
+    ArrayList<PVector> greeneryPositions; // To store greenery positions relative to Earth
 
-// initialize greenery positions relative to Earth
+// Initialize greenery positions relative to Earth
 void initGreenery(float earthSize) {
     greeneryPositions = new ArrayList<PVector>();
-    int numOfGreenery = 10; // number of green points
+    int numOfGreenery = 10; // Number of green points
     for (int i = 0; i < numOfGreenery; i++) {
         float angle = random(TWO_PI);
-        float radius = random(earthSize * 0.2f, earthSize * 0.4f); // random radius from earth's center
+        float radius = random(earthSize * 0.2f, earthSize * 0.4f); // Random radius from Earth's center
         greeneryPositions.add(new PVector(cos(angle) * radius, sin(angle) * radius));
     }
 }
 
-
+// Adjusted drawEarth function to use stored greenery positions
 private void drawEarth() {
     //float level = player.mix.level(); // Get current audio level
-    // base size of the Earth
-    float earthBaseSize = 20; 
-    float earthSize = earthBaseSize; 
-     // Position of Earth
+    float earthBaseSize = 20; // Base size of the Earth
+    float earthSize = earthBaseSize; // Make Earth's size reactive to the beat
     float earthX = width / 2.0f + cos(frameCount * 0.01f) * 200; // Position of Earth
     float earthY = height / 2.0f + sin(frameCount * 0.01f) * 200;
 

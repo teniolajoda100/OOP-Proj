@@ -100,7 +100,7 @@ public class Buildings extends PApplet {
         
         drawCar(pinkCarX, pinkCarY, 255, 105, 180);
         //Switching to the other 
-        if (millis() > 17500) {
+        if (millis() > 17000) {
             controller.switchToPerson();
             noLoop(); 
             surface.setVisible(false);

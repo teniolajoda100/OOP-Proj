@@ -100,12 +100,12 @@ public class Buildings2 extends PApplet {
         
         drawCar(pinkCarX, pinkCarY, 255, 105, 180);
         //Switching to the other 
-     /*    if (millis() > 17500) {
-            controller.switchToPerson();
+        if (millis() > 18000) {
+            controller.switchToUniverse2();
             noLoop(); 
             surface.setVisible(false);
         }
-        */
+        
     }
 
     private void drawCar(float x, float y, int r, int g, int b) {

@@ -60,7 +60,7 @@ public class Universe extends PApplet {
         drawSaturn();
         drawUranus();
         drawNeptune();
-        if (millis() > 20000) {
+        if (millis() > 19000) {
             controller.switchToBuildings2();
             noLoop(); 
             surface.setVisible(false);
@@ -70,32 +70,37 @@ public class Universe extends PApplet {
     private void drawStars() {
         fill(255); // colors of the star
         noStroke();
-        int NumOfStars = 300; // number of stars, change for more stars
+        int NumOfStars = 100; 
         for (int i = 0; i < NumOfStars; i++) {
-            float x = random(width); // random x position
-            float y = random(height); // random y position
-            float starSize = random(1, 3); // random star size between 1, 3 
-            ellipse(x, y, starSize, starSize); // draw each blinking star
+            float x = random(width); 
+            float y = random(height); 
+            // random star size between 1, 3 
+            float starSize = random(1, 3); 
+            // draw each blinking star
+            ellipse(x, y, starSize, starSize);
         }
     }
 
     private void drawSun() {
-        // Base parameters
-        float sunBaseSize = 50; // base size of the sun
-        float level = player.mix.level(); // get current audio level
-        float sunSize = sunBaseSize + level * 200; // size adjustment
         
-        // Sun position 
+        float sunBaseSize = 50; 
+        // get current audio level
+        float level = player.mix.level();
+       
+        float sunSize = sunBaseSize + level * 200; 
+        
+        
         float sunX = width / 2.0f; // centered across the width
         float sunY = height / 2.0f; // centered vertically
     
-        // Number of sun rays
-        int points = 16; // you can increase this for more rays
+        
+        int points = 16; 
         float angle = TWO_PI / points;
     
         // draw the main sun with jagged edges
         noStroke();
-        fill(255, 255, 0); // brightest yellow
+         // brightest yellow
+        fill(255, 255, 0); 
         beginShape();
         for (int i = 0; i < points; i++) {
             //calculate outer point
@@ -111,13 +116,13 @@ public class Universe extends PApplet {
         endShape(CLOSE);
     
         // drawing glow 
-        int auraLayers = 5; // num layers
+        int auraLayers = 5; 
         for (int i = 0; i < auraLayers; i++) {
-            float auraSize = sunSize * (1 + (i + 1) * 0.1f); //each layer slighty larger
+            float auraSize = sunSize * (1 + (i + 1) * 0.1f); 
             float alphaValue = 50 - i * 10; 
-            fill(255, 255, 0, alphaValue); // semi-transparent yellow for the aura
+            fill(255, 255, 0, alphaValue); 
     
-            // draw the aura layer with jagged edges
+            //jagged edges
             beginShape();
             for (int j = 0; j < points; j++) {
                 // calculate outer point
@@ -135,30 +140,29 @@ public class Universe extends PApplet {
     }
     
     
+    // To store greenery positions relative to Earth
+    ArrayList<PVector> greeneryPositions; 
 
-    ArrayList<PVector> greeneryPositions; // To store greenery positions relative to Earth
-
-// Initialize greenery positions relative to Earth
 void initGreenery(float earthSize) {
     greeneryPositions = new ArrayList<PVector>();
     int numOfGreenery = 10; // Number of green points
     for (int i = 0; i < numOfGreenery; i++) {
         float angle = random(TWO_PI);
-        float radius = random(earthSize * 0.2f, earthSize * 0.4f); // Random radius from Earth's center
+        float radius = random(earthSize * 0.2f, earthSize * 0.4f); 
         greeneryPositions.add(new PVector(cos(angle) * radius, sin(angle) * radius));
     }
 }
 
-// Adjusted drawEarth function to use stored greenery positions
+//drawEarth function to using stored greenery positions
 private void drawEarth() {
     //float level = player.mix.level(); // Get current audio level
-    float earthBaseSize = 20; // Base size of the Earth
-    float earthSize = earthBaseSize; // Make Earth's size reactive to the beat
-    float earthX = width / 2.0f + cos(frameCount * 0.01f) * 200; // Position of Earth
+    float earthBaseSize = 20; 
+    float earthSize = earthBaseSize; 
+    float earthX = width / 2.0f + cos(frameCount * 0.01f) * 200; // position of Earth
     float earthY = height / 2.0f + sin(frameCount * 0.01f) * 200;
 
 
-    // Initialize greenery positions if not already done
+    // initialize greenery positions if not already done
     if (greeneryPositions == null || greeneryPositions.isEmpty()) {
         initGreenery(earthSize);
     }
@@ -178,23 +182,23 @@ private void drawEarth() {
 }
 private void drawVenus() {
     //float level = player.mix.level(); // get current audio level
-    float venusBaseSize = 18; // slightly smaller than earth
-    float venusSize = venusBaseSize; // adjust venus  size reactively 
-    float venusDistanceFromSun = 150; // adjust this to place venus correctly in your simulation
-    float venusOrbitSpeed = 0.008f; // orbit speed
+    float venusBaseSize = 18; 
+    float venusSize = venusBaseSize; 
+    float venusDistanceFromSun = 150; 
+    float venusOrbitSpeed = 0.008f; 
     float venusX = width / 2.0f + cos(frameCount * venusOrbitSpeed) * venusDistanceFromSun; // venus position based on orbit
     float venusY = height / 2.0f + sin(frameCount * venusOrbitSpeed) * venusDistanceFromSun;
 
-    // venus color - representing its thick and toxic atmosphere
-    fill(255, 223, 0); // a yellow orange color
+    
+    fill(255, 223, 0); 
     noStroke();
-    ellipse(venusX, venusY, venusSize, venusSize); // draw reactive Venus
+    ellipse(venusX, venusY, venusSize, venusSize); 
 }
 
 private void drawMercury() {
    // float level = player.mix.level(); 
     float mercuryBaseSize = 12; 
-    float mercurySize = mercuryBaseSize; // adjust mercurys size reactively
+    float mercurySize = mercuryBaseSize; 
     float mercuryDistanceFromSun = 100; 
     float mercuryOrbitSpeed = 0.015f; 
     float mercuryX = width / 2.0f + cos(frameCount * mercuryOrbitSpeed) * mercuryDistanceFromSun; 
@@ -203,7 +207,7 @@ private void drawMercury() {
     
     fill(169, 169, 169);  
     noStroke();
-    ellipse(mercuryX, mercuryY, mercurySize, mercurySize); // draw reactive Mercury
+    ellipse(mercuryX, mercuryY, mercurySize, mercurySize); 
 }
 
 private void drawMars() {
@@ -212,7 +216,7 @@ private void drawMars() {
     float marsSize = marsBaseSize; 
     float marsDistanceFromSun = 250; 
     float marsOrbitSpeed = 0.008f; 
-    //mars x and y
+    
     float marsX = width / 2.0f + cos(frameCount * marsOrbitSpeed) * marsDistanceFromSun; 
     float marsY = height / 2.0f + sin(frameCount * marsOrbitSpeed) * marsDistanceFromSun;
 
@@ -287,7 +291,7 @@ private void drawNeptune() {
     float neptuneX = width / 2.0f + cos(frameCount * neptuneOrbitSpeed) * neptuneDistanceFromSun;
     float neptuneY = height / 2.0f + sin(frameCount * neptuneOrbitSpeed) * neptuneDistanceFromSun;
 
-    //color of Neptune
+   
     fill(28, 134, 238); 
     noStroke();
     ellipse(neptuneX, neptuneY, neptuneSize, neptuneSize); 

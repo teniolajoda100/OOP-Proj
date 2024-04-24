@@ -64,27 +64,27 @@ public class intro extends PApplet {
 
         drawStars();
         //LYRICS HERE
-        if (millis() - startTime >= 2290) {
+        if (millis() - startTime >= 2000) {
             textToShow = "YOU";
         }
-        if (millis() - startTime >= 3250) {
+        if (millis() - startTime >= 3000) {
             textToShow = "YOU ARE";
         }
-        if (millis() - startTime >= 4300) {
+        if (millis() - startTime >= 4000) {
             textToShow = "MY UNIVERSE";
         }
 
-        if (millis() - startTime >= 6000) {
+        if (millis() - startTime >= 5500) {
             textToShow = "AND...";
             
         }
 
-        if (millis() - startTime >= 6790) {
+        if (millis() - startTime >= 6500) {
             textToShow = "I";
 
         }
 
-        if (millis() - startTime >= 7500) {
+        if (millis() - startTime >= 7300) {
             textToShow = "JUST ";
             
         }
@@ -99,7 +99,7 @@ public class intro extends PApplet {
         }
 
         //YOU YOU ARE MY UNIVERSE 
-        if (millis() - startTime >= 11200) {
+        if (millis() - startTime >= 11000) {
             textToShow = "YOU";
             
         }
@@ -107,7 +107,7 @@ public class intro extends PApplet {
             textToShow = "YOU ARE";
             
         }
-        if (millis() - startTime >= 13350) {
+        if (millis() - startTime >= 13000) {
             textToShow = "MY UNIVERSE";
             
         }
@@ -115,13 +115,13 @@ public class intro extends PApplet {
             textToShow = "AND";
             
         }
-        if (millis() - startTime >= 15599) {
+        if (millis() - startTime >= 15300) {
             textToShow = "I....";
             
         }
         drawGlowingText(textToShow, width / 2, height/2);
         
-        if (millis() > 21000) {
+        if (millis() > 20700) {
             controller.switchToBuildings();
             noLoop(); 
             surface.setVisible(false);
@@ -155,7 +155,7 @@ public class intro extends PApplet {
         for (int i = 0; i < depth; i++) {
             pushMatrix();
             translate(0, 0, -i * 2); // moving text back in Z plane
-            text(text, 0, 0); // Draw the text
+            text(text, 0, 0); // draw the text
             popMatrix();
         }
     
@@ -174,8 +174,8 @@ public class intro extends PApplet {
             ellipse(x, y, size, size);
             float elapsed = millis() / 1000.0f;
             if (elapsed > 25) {  // After 25 seconds
-                controller.switchToBuildings();  // Switch to Buildings sketch
-                noLoop();  // Stop the draw loop
+                controller.switchToBuildings();  // switch to next visual
+                noLoop();  
                 //surface.setVisible(true);
             }
         }

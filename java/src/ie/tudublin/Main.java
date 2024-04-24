@@ -45,10 +45,27 @@ public class Main extends PApplet {
     }
     public void switchToBuildings2(){
 
-        String[] args = {"universe2"};
+        String[] args = {"buildings2"};
         Buildings2 buildings2 = new Buildings2(this,song);
         PApplet.runSketch(args, buildings2);
     
+    }
+    public void switchToUniverse2(){
+
+        String[] args = {"universe2"};
+        Universe2 universe2 = new Universe2(this,song);
+        PApplet.runSketch(args, universe2);
+    
+    }
+    public void switchToPerson2(){
+        String[] args = {"person2"};
+        person2 person2 = new person2(this, song);
+        PApplet.runSketch(args, person2);
+    }
+    public void switchToUniverse3(){
+        String[] args = {"universe3"};
+        Universe3 universe3 = new Universe3(this,song);
+        PApplet.runSketch(args, universe3);
     }
     public static void main(String[] args) {
         PApplet.main("ie.tudublin.Main");

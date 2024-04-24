@@ -5,7 +5,7 @@ import processing.core.PImage;
 import ddf.minim.*;
 import ddf.minim.analysis.*;
 
-public class person extends PApplet {
+public class person2 extends PApplet {
     Main controller;
     PImage earthTexture;
     float rotationX = 0;
@@ -30,7 +30,7 @@ public class person extends PApplet {
     float viewerSpeedX = 3; 
     float viewerSpeedY = 1; 
 
-    public person(Main controller, AudioPlayer player) {
+    public person2(Main controller, AudioPlayer player) {
         this.controller = controller;
         this.song = player;
     }
@@ -80,8 +80,8 @@ public class person extends PApplet {
 
         
         moonRotation += moonOrbitSpeed;
-        if (millis() > 9400) {
-            controller.switchToUniverse();
+        if (millis() > 27000) {
+            controller.switchToUniverse3();
             noLoop(); 
             surface.setVisible(false);
         }
